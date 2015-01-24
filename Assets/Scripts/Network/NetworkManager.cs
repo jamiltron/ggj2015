@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -32,6 +33,7 @@ public class NetworkManager : MonoBehaviour
 
 			// We connected to server, so instantiate our player.
 			Network.Instantiate(PlayerPrefab, PlayerPrefab.transform.position, PlayerPrefab.transform.rotation, 0);
+
 		}
 	}
 

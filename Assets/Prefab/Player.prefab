@@ -15,6 +15,7 @@ GameObject:
   - 114: {fileID: 11462392}
   - 114: {fileID: 11466820}
   - 50: {fileID: 5062392}
+  - 114: {fileID: 11446058}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -87,6 +88,17 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: 1, y: 1}
   m_Center: {x: 0, y: 0}
+--- !u!114 &11446058
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 162392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 330ed23fb9599be458db00d86484924c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11462392
 MonoBehaviour:
   m_ObjectHideFlags: 1
