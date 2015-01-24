@@ -890,7 +890,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ca1291d619bbf34a840b8beac3b064c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Scale: {x: 2, y: 2, z: 2}
+  Scales:
+  - {x: 2, y: 2, z: 2}
   ScaleTime: .5
   ScaleCurve:
     serializedVersion: 2
