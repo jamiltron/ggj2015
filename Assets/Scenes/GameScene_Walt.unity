@@ -289,6 +289,7 @@ GameObject:
   - 114: {fileID: 948646739}
   - 114: {fileID: 948646748}
   - 114: {fileID: 948646749}
+  - 114: {fileID: 948646750}
   m_Layer: 10
   m_Name: KeyedInstrument
   m_TagString: Instrument
@@ -321,7 +322,7 @@ NetworkView:
   m_StateSynchronization: 1
   m_Observed: {fileID: 948646747}
   m_ViewID:
-    m_ID: 1
+    m_ID: 4
     m_Type: 1
 --- !u!82 &948646741
 AudioSource:
@@ -475,7 +476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Scales:
-  - {x: 3, y: 3, z: 3}
+  - {x: 3, y: 3, z: 1}
   ScaleTime: .5
   ScaleCurve:
     serializedVersion: 2
@@ -531,6 +532,80 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!114 &948646750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 948646738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dc564b4032691d418375a544853ac0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Rotations:
+  - 15
+  RotTime: .5
+  RotCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: .0124014514
+      outSlope: .0124014514
+      tangentMode: 0
+    - time: .099999994
+      value: 1
+      inSlope: -.0046459455
+      outSlope: -.0046459455
+      tangentMode: 0
+    - time: .200000048
+      value: -1
+      inSlope: .0130705237
+      outSlope: .0130705237
+      tangentMode: 0
+    - time: .301606268
+      value: 1
+      inSlope: .0147198187
+      outSlope: .0147198187
+      tangentMode: 0
+    - time: .400000036
+      value: -1
+      inSlope: .00912356097
+      outSlope: .00912356097
+      tangentMode: 0
+    - time: .5
+      value: .994971812
+      inSlope: -.00500699319
+      outSlope: -.00500699319
+      tangentMode: 0
+    - time: .600000024
+      value: -1
+      inSlope: -.0115507757
+      outSlope: -.0115507757
+      tangentMode: 0
+    - time: .699999988
+      value: 1
+      inSlope: -.0219548959
+      outSlope: -.0219548959
+      tangentMode: 0
+    - time: .800000012
+      value: -1
+      inSlope: -.00997107569
+      outSlope: -.00997107569
+      tangentMode: 0
+    - time: .899999976
+      value: 1
+      inSlope: -.0155686783
+      outSlope: -.0155686783
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: .0771134123
+      outSlope: .0771134123
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1001 &955789793
 Prefab:
   m_ObjectHideFlags: 0
@@ -575,6 +650,18 @@ Prefab:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 14892684, guid: 969f49ea1e2d34547b58f36d8c7bb632, type: 2}
+      propertyPath: m_ViewID.m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 486200, guid: 969f49ea1e2d34547b58f36d8c7bb632, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 14886200, guid: 969f49ea1e2d34547b58f36d8c7bb632, type: 2}
+      propertyPath: m_ViewID.m_ID
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 14886200, guid: 969f49ea1e2d34547b58f36d8c7bb632, type: 2}
       propertyPath: m_ViewID.m_Type
       value: 1
       objectReference: {fileID: 0}

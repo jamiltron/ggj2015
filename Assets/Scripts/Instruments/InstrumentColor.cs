@@ -26,6 +26,6 @@ public class InstrumentColor : MonoBehaviour
 	{
 		float t = Time.time - _lastPress;
 		t = ColorCurve.Evaluate(t/ColorTime);
-		renderer.material.color = Color.Lerp(_baseColor, _targetColor, t);
+		renderer.material.color = _baseColor*(1 - t) + _targetColor*t;
 	}
 }

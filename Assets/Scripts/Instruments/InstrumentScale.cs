@@ -26,6 +26,6 @@ public class InstrumentScale : MonoBehaviour
 	{
 		float t = Time.time - _lastPress;
 		t = ScaleCurve.Evaluate(t / ScaleTime);
-		transform.localScale = Vector3.Lerp(_baseScale, _targetScale, t);
+		transform.localScale = _baseScale*(1 - t) + _targetScale*t;
 	}
 }
