@@ -308,7 +308,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 492684, guid: 969f49ea1e2d34547b58f36d8c7bb632, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 14892684, guid: 969f49ea1e2d34547b58f36d8c7bb632, type: 2}
       propertyPath: m_ViewID.m_ID
@@ -717,6 +717,7 @@ GameObject:
   - 61: {fileID: 2067254341}
   - 82: {fileID: 2067254339}
   - 148: {fileID: 2067254345}
+  - 114: {fileID: 2067254347}
   m_Layer: 10
   m_Name: KeyedInstrument
   m_TagString: Instrument
@@ -860,7 +861,7 @@ NetworkView:
   m_GameObject: {fileID: 2067254338}
   m_Enabled: 1
   m_StateSynchronization: 1
-  m_Observed: {fileID: 2067254344}
+  m_Observed: {fileID: 0}
   m_ViewID:
     m_ID: 2
     m_Type: 1
@@ -878,3 +879,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - {fileID: 8300000, guid: a394adf8a64994d7abce77a933b4b2e7, type: 3}
+--- !u!114 &2067254347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2067254338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ca1291d619bbf34a840b8beac3b064c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Scales:
+  - {x: 2, y: 2, z: 2}
+  ScaleTime: .5
+  ScaleCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 2.00076532
+      outSlope: 2.00076532
+      tangentMode: 0
+    - time: .5
+      value: 1
+      inSlope: .0191991609
+      outSlope: .0191991609
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: -2.0185132
+      outSlope: -2.0185132
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
