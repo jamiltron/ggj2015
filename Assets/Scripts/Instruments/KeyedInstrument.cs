@@ -10,7 +10,6 @@ public class KeyedInstrument : MonoBehaviour {
 
   public List<string> keys;
   public List<AudioClip> sounds;
-  public AudioClip testClip;
 
   void Awake() {
     playersInRange = new List<GameObject>();
@@ -21,32 +20,30 @@ public class KeyedInstrument : MonoBehaviour {
     foreach (var player in playersInRange) {
       NetworkView playerView = player.GetComponent<NetworkView>();
       if (playerView.isMine) {
-        Debug.Log("playerView is mine!");
-        if (Input.GetButtonDown("Play Instrument")) {
-          Debug.Log("Playing instrument!");
-          audioSource.clip = testClip;
-          audioSource.Play();
+        foreach (var key in keys) {
+          if (Input.GetButtonDown(key)) {
+            networkView.RPC("PlaySoundFromKey", RPCMode.All, key);
+          }
         }
       }
     }
   }
 
   [RPC]
-  public void PlaySound(string keyName) {
-    audioSource.clip = testClip;
+  public void PlaySoundFromKey(string keyName) {
+    int i = keys.IndexOf(keyName);
+    audioSource.clip = sounds[i];
     audioSource.Play();
   }
 
   void OnTriggerEnter2D(Collider2D other) {
     if (other.gameObject.tag == "Player") {
-      Debug.Log("a player has entered instrument range");
       playersInRange.Add(other.gameObject);
     }
   }
 
   void OnTriggerExit2D(Collider2D other) {
     if (other.gameObject.tag == "Player") {
-      Debug.Log("a player has left instrument range");
       playersInRange.Remove(other.gameObject);
     }
   }
