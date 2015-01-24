@@ -253,7 +253,6 @@ public class PlayerMovement : MonoBehaviour {
     
     // set our becameGrounded state based on the previous and current collision state
     if (!collisionState.wasGroundedLastFrame && collisionState.below) {
-      Debug.Log("becameGroundedThisFrame!");
       collisionState.becameGroundedThisFrame = true;
     }
     
