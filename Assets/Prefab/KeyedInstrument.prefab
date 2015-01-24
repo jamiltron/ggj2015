@@ -10,15 +10,15 @@ GameObject:
   - 4: {fileID: 454240}
   - 114: {fileID: 11454236}
   - 114: {fileID: 11454238}
-  - 33: {fileID: 3354240}
-  - 23: {fileID: 2354240}
-  - 61: {fileID: 6154240}
   - 82: {fileID: 8254240}
-  - 148: {fileID: 14854240}
-  - 114: {fileID: 11454240}
   - 114: {fileID: 11454234}
   - 114: {fileID: 11454232}
   - 114: {fileID: 11454230}
+  - 33: {fileID: 3354240}
+  - 23: {fileID: 2354240}
+  - 61: {fileID: 6154240}
+  - 148: {fileID: 14854240}
+  - 114: {fileID: 11442726}
   m_Layer: 10
   m_Name: KeyedInstrument
   m_TagString: Instrument
@@ -134,6 +134,17 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!114 &11442726
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 641102b57928c514d98dfce581ae293c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11454230
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -290,19 +301,6 @@ MonoBehaviour:
   keys:
   - Play Instrument
 --- !u!114 &11454238
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 154240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc4fdd5c802a81546adae60b6aaf9d95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sounds:
-  - {fileID: 8300000, guid: a394adf8a64994d7abce77a933b4b2e7, type: 3}
---- !u!114 &11454240
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
