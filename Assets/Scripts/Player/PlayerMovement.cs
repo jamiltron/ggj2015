@@ -13,6 +13,9 @@ public class PlayerMovement : MonoBehaviour {
   }
 
   void Update() {
+    if(!networkView.isMine)
+      return;
+
     int normalizedHorizontal = 0;
     if (Input.GetButton("Left")) {
       normalizedHorizontal -= 1;
