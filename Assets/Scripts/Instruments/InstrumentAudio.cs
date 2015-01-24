@@ -8,6 +8,6 @@ public class InstrumentAudio : MonoBehaviour
 	public void OnKeyPress(int keyIndex)
 	{
 		AudioClip clip = sounds[keyIndex % sounds.Count];
-		audioSource.PlayOneShot(clip);
+		audio.PlayOneShot(clip);
 	}
 }
