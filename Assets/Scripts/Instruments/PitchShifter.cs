@@ -20,7 +20,6 @@ public class PitchShifter : MonoBehaviour {
   }
 
   void Update() {
-    Debug.Log("Updating!");
     foreach (var player in playable.GetPlayers()) {
       NetworkView playerView = player.GetComponent<NetworkView>();
       if (playerView.isMine) {
