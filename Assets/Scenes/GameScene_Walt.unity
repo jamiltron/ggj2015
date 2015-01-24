@@ -654,8 +654,6 @@ GameObject:
   - 4: {fileID: 1969625207}
   - 33: {fileID: 1969625209}
   - 23: {fileID: 1969625208}
-  - 114: {fileID: 1969625210}
-  - 148: {fileID: 1969625211}
   m_Layer: 0
   m_Name: PitchUpButton
   m_TagString: Untagged
@@ -704,33 +702,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 955789793}
   m_GameObject: {fileID: 1969625206}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1969625210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1969625206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e17a20de70854a55824e8ff4fe4ed0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pitchAmount: 1
-  pitchMin: 0
-  pitchMax: 10
-  keyName: Pitch Up
---- !u!148 &1969625211
-NetworkView:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1969625206}
-  m_Enabled: 1
-  m_StateSynchronization: 1
-  m_Observed: {fileID: 1969625207}
-  m_ViewID:
-    m_ID: 3
-    m_Type: 1
 --- !u!1 &2067254338
 GameObject:
   m_ObjectHideFlags: 0
@@ -746,7 +717,6 @@ GameObject:
   - 61: {fileID: 2067254341}
   - 82: {fileID: 2067254339}
   - 148: {fileID: 2067254345}
-  - 114: {fileID: 2067254346}
   m_Layer: 10
   m_Name: KeyedInstrument
   m_TagString: Instrument
@@ -897,8 +867,9 @@ NetworkView:
 --- !u!114 &2067254346
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabParentObject: {fileID: 11478562, guid: 969f49ea1e2d34547b58f36d8c7bb632,
+    type: 2}
+  m_PrefabInternal: {fileID: 955789793}
   m_GameObject: {fileID: 2067254338}
   m_Enabled: 1
   m_EditorHideFlags: 0
