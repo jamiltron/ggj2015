@@ -84,11 +84,12 @@ GameObject:
   - 4: {fileID: 160908724}
   - 33: {fileID: 160908723}
   - 23: {fileID: 160908722}
-  - 61: {fileID: 160908721}
-  - 50: {fileID: 160908720}
-  - 114: {fileID: 160908719}
   - 148: {fileID: 160908725}
-  m_Layer: 0
+  - 61: {fileID: 160908721}
+  - 50: {fileID: 160908726}
+  - 114: {fileID: 160908720}
+  - 114: {fileID: 160908719}
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -103,25 +104,60 @@ MonoBehaviour:
   m_GameObject: {fileID: 160908718}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86ee912590a11475793e53dd1ee5abc3, type: 3}
+  m_Script: {fileID: 11500000, guid: 78c7d5a57d9c84f1da82845476c22917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 10
---- !u!50 &160908720
-Rigidbody2D:
+  gravity: -25
+  runSpeed: 8
+  groundDamping: 20
+  inAirDamping: 5
+  jumpHeight: 3
+--- !u!114 &160908720
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 160908718}
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: .0500000007
-  m_GravityScale: 1
-  m_FixedAngle: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86ee912590a11475793e53dd1ee5abc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _skinWidth: .0199999996
+  platformMask:
+    serializedVersion: 2
+    m_Bits: 256
+  triggerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  oneWayPlatformMask:
+    serializedVersion: 2
+    m_Bits: 0
+  slopeLimit: 30
+  jumpingThreshold: .0700000003
+  slopeSpeedMultiplier:
+    serializedVersion: 2
+    m_Curve:
+    - time: -90
+      value: 1.5
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 90
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  totalHorizontalRays: 8
+  totalVerticalRays: 4
+  triggerHelperBoxColliderScale: .949999988
 --- !u!61 &160908721
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -130,7 +166,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 160908718}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Size: {x: 1, y: 1}
   m_Center: {x: 0, y: 0}
 --- !u!23 &160908722
@@ -184,6 +220,21 @@ NetworkView:
   m_ViewID:
     m_ID: 1
     m_Type: 1
+--- !u!50 &160908726
+Rigidbody2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 160908718}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 1
+  m_FixedAngle: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
 --- !u!1 &360053610
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,8 +330,7 @@ GameObject:
   - 33: {fileID: 418626087}
   - 23: {fileID: 418626085}
   - 61: {fileID: 418626089}
-  - 50: {fileID: 418626086}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -307,21 +357,6 @@ Renderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!50 &418626086
-Rigidbody2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 418626084}
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: .0500000007
-  m_GravityScale: 1
-  m_FixedAngle: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
 --- !u!33 &418626087
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -404,6 +439,7 @@ GameObject:
   - 61: {fileID: 2067254341}
   - 114: {fileID: 2067254340}
   - 82: {fileID: 2067254339}
+  - 148: {fileID: 2067254345}
   m_Layer: 0
   m_Name: Instrument
   m_TagString: Instrument
@@ -482,7 +518,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keys: []
   sounds: []
-  testClip: {fileID: 8300000, guid: a394adf8a64994d7abce77a933b4b2e7, type: 3}
 --- !u!61 &2067254341
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -533,3 +568,15 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
+--- !u!148 &2067254345
+NetworkView:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2067254338}
+  m_Enabled: 1
+  m_StateSynchronization: 1
+  m_Observed: {fileID: 2067254344}
+  m_ViewID:
+    m_ID: 2
+    m_Type: 1
