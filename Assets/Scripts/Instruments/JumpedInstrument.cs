@@ -21,6 +21,7 @@ public class JumpedInstrument: RangedPlayable {
       if (playerView.isMine) {
         PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
         if (playerMovement.collisionState.becameGroundedThisFrame) {
+          Debug.Log("jumpin jumpin");
           networkView.RPC("SendOnKeyPress", RPCMode.All, 0);
         }
       }
