@@ -6,14 +6,11 @@ using System.Collections.Generic;
 public class KeyedInstrument : MonoBehaviour {
 
   private List<GameObject> playersInRange;
-  private AudioSource audioSource;
 
   public List<string> keys;
-  public List<AudioClip> sounds;
 
   void Awake() {
     playersInRange = new List<GameObject>();
-    audioSource = GetComponent<AudioSource>();
   }
 
   void Update() {
@@ -23,7 +20,7 @@ public class KeyedInstrument : MonoBehaviour {
         foreach (var key in keys) {
           if (Input.GetButtonDown(key)) {
             Debug.Log("KEY!");
-            networkView.RPC("PlaySoundFromKey", RPCMode.All, key);
+			networkView.RPC("SendOnKeyPress", RPCMode.All, keys.IndexOf(key));
           }
         }
       }
@@ -31,10 +28,8 @@ public class KeyedInstrument : MonoBehaviour {
   }
 
   [RPC]
-  public void PlaySoundFromKey(string keyName) {
-    int i = keys.IndexOf(keyName);
-    audioSource.clip = sounds[i];
-    audioSource.Play();
+  void SendOnKeyPress(int keyIndex) {
+    SendMessage("OnKeyPress", keyIndex, SendMessageOptions.DontRequireReceiver);
   }
 
   void OnTriggerEnter2D(Collider2D other) {

@@ -315,7 +315,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -507,10 +507,11 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 2067254344}
+  - 114: {fileID: 2067254340}
+  - 114: {fileID: 2067254346}
   - 33: {fileID: 2067254343}
   - 23: {fileID: 2067254342}
   - 61: {fileID: 2067254341}
-  - 114: {fileID: 2067254340}
   - 82: {fileID: 2067254339}
   - 148: {fileID: 2067254345}
   m_Layer: 10
@@ -591,8 +592,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keys:
   - Play Instrument
-  sounds:
-  - {fileID: 8300000, guid: a394adf8a64994d7abce77a933b4b2e7, type: 3}
 --- !u!61 &2067254341
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -655,3 +654,16 @@ NetworkView:
   m_ViewID:
     m_ID: 2
     m_Type: 1
+--- !u!114 &2067254346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2067254338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc4fdd5c802a81546adae60b6aaf9d95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 8300000, guid: a394adf8a64994d7abce77a933b4b2e7, type: 3}
