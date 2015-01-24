@@ -10,7 +10,8 @@ public class PitchShifter : MonoBehaviour {
   public int pitchAmount;
   public int pitchMin;
   public int pitchMax;
-  public string keyName;
+  public string upKeyName;
+  public string downKeyName;
 
   void Awake() {
     GameObject parentObj = transform.parent.gameObject;
@@ -23,19 +24,24 @@ public class PitchShifter : MonoBehaviour {
     foreach (var player in playable.GetPlayers()) {
       NetworkView playerView = player.GetComponent<NetworkView>();
       if (playerView.isMine) {
-        if (Input.GetButtonDown(keyName)) {
-          networkView.RPC("ShiftPitch", RPCMode.All);
+        if (upKeyName != null && Input.GetButtonDown(upKeyName)) {
+          networkView.RPC("ShiftPitch", RPCMode.All, pitchAmount);
+        }
+        if (downKeyName != null && Input.GetButtonDown(downKeyName)) {
+          networkView.RPC("ShiftPitch", RPCMode.All, -pitchAmount);
         }
       }
     }
   }
 
   [RPC]
-  public void ShiftPitch() {
-    audioSource.pitch += pitchAmount;
+  public void ShiftPitch(int amount) {
+    audioSource.pitch += amount;
 
     if (audioSource.pitch > pitchMax) {
-      audioSource.pitch = (audioSource.pitch - pitchMax) + pitchMin;
+      audioSource.pitch = pitchMin;
+    } else if (audioSource.pitch < pitchMin) {
+      audioSource.pitch = pitchMax;
     }
   }
   

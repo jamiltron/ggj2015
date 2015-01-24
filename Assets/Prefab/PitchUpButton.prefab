@@ -70,9 +70,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pitchAmount: 1
-  pitchMin: 0
+  pitchMin: 1
   pitchMax: 10
-  keyName: Pitch Up
+  upKeyName: Pitch Up
+  downKeyName: Pitch Down
 --- !u!148 &14827228
 NetworkView:
   m_ObjectHideFlags: 1

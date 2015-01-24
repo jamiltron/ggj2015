@@ -121,6 +121,22 @@ Prefab:
       propertyPath: m_ViewID.m_Type
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 127228, guid: 974d24c18189a4d10bcd5c9cb576c663, type: 2}
+      propertyPath: m_Name
+      value: PitchButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 11427228, guid: 974d24c18189a4d10bcd5c9cb576c663, type: 2}
+      propertyPath: upKeyName
+      value: Pitch Up
+      objectReference: {fileID: 0}
+    - target: {fileID: 11427228, guid: 974d24c18189a4d10bcd5c9cb576c663, type: 2}
+      propertyPath: downKeyName
+      value: Pitch Down
+      objectReference: {fileID: 0}
+    - target: {fileID: 11427228, guid: 974d24c18189a4d10bcd5c9cb576c663, type: 2}
+      propertyPath: pitchMin
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 974d24c18189a4d10bcd5c9cb576c663, type: 2}
   m_RootGameObject: {fileID: 1969625206}
@@ -544,7 +560,7 @@ GameObject:
   - 114: {fileID: 1969625210}
   - 148: {fileID: 1969625211}
   m_Layer: 0
-  m_Name: PitchUpButton
+  m_Name: PitchButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -604,9 +620,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pitchAmount: 1
-  pitchMin: 0
+  pitchMin: 1
   pitchMax: 10
-  keyName: Pitch Up
+  upKeyName: Pitch Up
+  downKeyName: Pitch Down
 --- !u!148 &1969625211
 NetworkView:
   m_ObjectHideFlags: 0
