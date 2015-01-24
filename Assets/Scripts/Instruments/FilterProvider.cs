@@ -7,17 +7,25 @@ public class FilterProvider : MonoBehaviour {
 
   void OnTriggerEnter2D(Collider2D other) {
     if (other.gameObject.tag == "Instrument") {
-      Debug.Log("Applying filter to instrument!");
-      other.gameObject.AddComponent(filterName);
+      networkView.RPC("AddFilter", RPCMode.All, other.gameObject);
     }
   }
 
   void OnTriggerExit2D(Collider2D other) {
     if (other.gameObject.tag == "Instrument") {
-      Debug.Log("Removing filter from instrument!");
-      Destroy(other.gameObject.GetComponent(filterName));
+      networkView.RPC("RemoveFilter", RPCMode.All, other.gameObject);
     }
-
   }
+
+  [RPC]
+  public void AddFilter(GameObject target) {
+    target.AddComponent(filterName);
+  }
+
+  [RPC]
+  public void RemoveFilter(GameObject target) {
+    Destroy(target.GetComponent(filterName));
+  }
+
 
 }
