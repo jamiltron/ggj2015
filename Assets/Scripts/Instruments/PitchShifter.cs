@@ -4,9 +4,8 @@ using System.Collections;
 public class PitchShifter : MonoBehaviour {
 
   private int pitchOriginal;
-  private Transform transform;
   private RangedPlayable playable;
-  private AudioSource audio;
+  private AudioSource audioSource;
 
   public int pitchAmount;
   public int pitchMin;
@@ -14,18 +13,18 @@ public class PitchShifter : MonoBehaviour {
   public string keyName;
 
   void Awake() {
-    transform = GetComponent<Transform>();
     GameObject parentObj = transform.parent.gameObject;
     playable = parentObj.GetComponent<RangedPlayable>();
-    audio = parentObj.GetComponent<AudioSource>();
+    audioSource = parentObj.GetComponent<AudioSource>();
   }
 
   void Update() {
+    Debug.Log("Updating!");
     foreach (var player in playable.GetPlayers()) {
       NetworkView playerView = player.GetComponent<NetworkView>();
       if (playerView.isMine) {
-          if (Input.GetButtonDown(keyName)) {
-            networkView.RPC("ShiftPitch", RPCMode.All);
+        if (Input.GetButtonDown(keyName)) {
+          networkView.RPC("ShiftPitch", RPCMode.All);
         }
       }
     }
@@ -33,10 +32,10 @@ public class PitchShifter : MonoBehaviour {
 
   [RPC]
   public void ShiftPitch() {
-    audio.pitch += pitchAmount;
+    audioSource.pitch += pitchAmount;
 
-    if (audio.pitch > pitchMax) {
-      audio.pitch = (audio.pitch - pitchMax) + pitchMin;
+    if (audioSource.pitch > pitchMax) {
+      audioSource.pitch = (audioSource.pitch - pitchMax) + pitchMin;
     }
   }
   
