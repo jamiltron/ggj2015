@@ -12,6 +12,8 @@ public class NetworkManager : MonoBehaviour
 	public const string LOBBY_SCENE = "Lobby";
 	public const string GAME_SCENE = "GameScene";
 
+	public GameObject PlayerPrefab;
+
 	/// <summary>
 	/// Called by Unity to initialize networking by starting a server or connecting to a running server.
 	/// </summary>
@@ -27,6 +29,9 @@ public class NetworkManager : MonoBehaviour
 		{
 			// Presumably we've turned of the message queue while switching scenes, so turn it back on.
 			Network.isMessageQueueRunning = true;
+
+			// We connected to server, so instantiate our player.
+			Network.Instantiate(PlayerPrefab, PlayerPrefab.transform.position, PlayerPrefab.transform.rotation, 0);
 		}
 	}
 

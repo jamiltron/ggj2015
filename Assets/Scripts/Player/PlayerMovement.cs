@@ -181,7 +181,7 @@ public class PlayerMovement : MonoBehaviour {
       }
     }
   }
-  
+
   public void OnTriggerEnter2D(Collider2D col) {
     if (onTriggerEnterEvent != null) {
       onTriggerEnterEvent(col);
