@@ -1,42 +1,42 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &127228
+--- !u!1 &134164
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 427228}
-  - 33: {fileID: 3327228}
-  - 23: {fileID: 2327228}
-  - 114: {fileID: 11427228}
-  - 148: {fileID: 14827228}
+  - 4: {fileID: 434164}
+  - 33: {fileID: 3334164}
+  - 23: {fileID: 2334164}
+  - 114: {fileID: 11434164}
+  - 148: {fileID: 14834164}
   m_Layer: 0
-  m_Name: PitchUpButton
+  m_Name: PitchButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &427228
+--- !u!4 &434164
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 127228}
+  m_GameObject: {fileID: 134164}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .75, y: -.370000005, z: 0}
   m_LocalScale: {x: .5, y: .25, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!23 &2327228
+--- !u!23 &2334164
 Renderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 127228}
+  m_GameObject: {fileID: 134164}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -51,19 +51,19 @@ Renderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!33 &3327228
+--- !u!33 &3334164
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 127228}
+  m_GameObject: {fileID: 134164}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &11427228
+--- !u!114 &11434164
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 127228}
+  m_GameObject: {fileID: 134164}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e17a20de70854a55824e8ff4fe4ed0f, type: 3}
@@ -74,15 +74,15 @@ MonoBehaviour:
   pitchMax: 10
   upKeyName: Pitch Up
   downKeyName: Pitch Down
---- !u!148 &14827228
+--- !u!148 &14834164
 NetworkView:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 127228}
+  m_GameObject: {fileID: 134164}
   m_Enabled: 1
   m_StateSynchronization: 1
-  m_Observed: {fileID: 427228}
+  m_Observed: {fileID: 434164}
   m_ViewID:
     m_ID: 0
     m_Type: 0
@@ -95,6 +95,6 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 127228}
+  m_RootGameObject: {fileID: 134164}
   m_IsPrefabParent: 1
   m_IsExploded: 1
