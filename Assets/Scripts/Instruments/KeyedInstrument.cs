@@ -22,6 +22,7 @@ public class KeyedInstrument : MonoBehaviour {
       if (playerView.isMine) {
         foreach (var key in keys) {
           if (Input.GetButtonDown(key)) {
+            Debug.Log("KEY!");
             networkView.RPC("PlaySoundFromKey", RPCMode.All, key);
           }
         }
