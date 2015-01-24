@@ -22,6 +22,9 @@ public class PlayerInput : MonoBehaviour {
   
   // the Update loop contains a very simple example of moving the character around and controlling the animation
   void Update() {
+
+    if(!networkView.isMine)
+      return;
        
     // grab our current _velocity to use as a base for all calculations
     _velocity = _controller.velocity;
