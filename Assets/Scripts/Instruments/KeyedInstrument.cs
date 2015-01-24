@@ -3,13 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 
 [RequireComponent(typeof(AudioSource))]
-public class KeyedInstrument : MonoBehaviour {
+public class KeyedInstrument : RangedPlayable {
 
   private List<GameObject> playersInRange;
   private AudioSource audioSource;
 
   public List<string> keys;
   public List<AudioClip> sounds;
+
+  override public List<GameObject> GetPlayers() {
+    return playersInRange;
+  }
 
   void Awake() {
     playersInRange = new List<GameObject>();
@@ -22,7 +26,6 @@ public class KeyedInstrument : MonoBehaviour {
       if (playerView.isMine) {
         foreach (var key in keys) {
           if (Input.GetButtonDown(key)) {
-            Debug.Log("KEY!");
             networkView.RPC("PlaySoundFromKey", RPCMode.All, key);
           }
         }
