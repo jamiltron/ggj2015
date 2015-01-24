@@ -6,7 +6,6 @@ using System.Collections.Generic;
 public class KeyedInstrument : RangedPlayable {
 
   private List<GameObject> playersInRange;
-  private List<GameObject> filtersInRange;
 
   public List<string> keys;
 
@@ -16,7 +15,6 @@ public class KeyedInstrument : RangedPlayable {
 
   void Awake() {
     playersInRange = new List<GameObject>();
-    filtersInRange = new List<GameObject>();
   }
 
   void Update() {
