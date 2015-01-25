@@ -9,7 +9,6 @@ public class Dokiable : MonoBehaviour {
     Dropped
   }
 
-  public Vector2 throwSpeed;
   public float gravity;
   public float verticalBuffer = 0.1f;
   public float horizontalBuffer = 0.1f;
@@ -23,6 +22,35 @@ public class Dokiable : MonoBehaviour {
   private Transform myTransform;
   private BoxCollider2D myCollider;
 
+  private struct DokiRaycastOrigins {
+    public Vector3 bottomRight;
+    public Vector3 bottomLeft;
+  }
+
+  public class DokiCollisionState2D {
+    public bool right;
+    public bool left;
+    public bool above;
+    public bool below;
+    
+    public bool hasCollision() {
+      return below || right || left || above;
+    }
+    
+    public void reset() {
+      right = left = above = below = false;
+    }
+  }
+
+  private float _verticalDistanceBetweenRays;
+  private float _horizontalDistanceBetweenRays;
+
+  [SerializeField]
+  [Range( 0.001f, 0.3f )]
+  private float _skinWidth = 0.02f;
+
+
+  public bool isGrounded { get { return collisionState.below; } }
 
   void Awake() {
     myTransform = GetComponent<Transform>();
@@ -40,6 +68,26 @@ public class Dokiable : MonoBehaviour {
     }
   }
 
+  [HideInInspector]
+  public DokiCollisionState2D collisionState = new DokiCollisionState2D();
+
+  [HideInInspector]
+  private DokiRaycastOrigins raycastOrigins;
+
+  [Range( 2, 20 )]
+  public int totalVerticalRays = 4;
+
+  private const float kSkinWidthFloatFudgeFactor = 0.001f;
+
+  private void primeRaycastOrigins(Vector3 futurePosition, Vector3 deltaMovement) {
+    // our raycasts need to be fired from the bounds inset by the skinWidth
+    var modifiedBounds = myCollider.bounds;
+    modifiedBounds.Expand(-_skinWidth);
+
+    raycastOrigins.bottomRight = new Vector2(modifiedBounds.max.x, modifiedBounds.min.y);
+    raycastOrigins.bottomLeft = modifiedBounds.min;
+  }
+
   void Update() {
     if (dokiState == DokiState.Held) {
       gameObject.layer = LayerMask.NameToLayer("Held");
@@ -47,11 +95,66 @@ public class Dokiable : MonoBehaviour {
       newPosition.x = holder.transform.position.x;
       newPosition.y = heldY();
       myTransform.position = newPosition;
-    } else if (dokiState == DokiState.Dropped) {
+    } else if (dokiState == DokiState.Dropped || dokiState == DokiState.Grounded) {
+      Debug.Log("Updating dropped!");
+      float deltaY = gravity * Time.deltaTime;
+      Vector3 delta = new Vector3(0f, deltaY, 0f);
+      primeRaycastOrigins(myTransform.position + delta, delta);
+
+      if (deltaY != 0) {
+        moveVertically(ref delta);
+      }
+
+      // move then update our state
+      transform.Translate(delta, Space.World);
+      
+      // only calculate velocity if we have a non-zero deltaTime
+      if (Time.deltaTime > 0) {
+        velocity = delta / Time.deltaTime;
+      }
+    }
+  }
+
+  private void moveVertically(ref Vector3 deltaMovement) {
+    var rayDistance = Mathf.Abs(deltaMovement.y) + _skinWidth;
+    var rayDirection = -Vector2.up;
+    var initialRayOrigin = raycastOrigins.bottomLeft;
+    
+    // apply our horizontal deltaMovement here so that we do our raycast from the actual position we would be in if we had moved
+    initialRayOrigin.x += deltaMovement.x;
+    
+    for (var i = 0; i < totalVerticalRays; i++) {
+      var ray = new Vector2(initialRayOrigin.x + i * _horizontalDistanceBetweenRays, initialRayOrigin.y);
+
+      RaycastHit2D raycastHit = Physics2D.Raycast(ray, rayDirection, rayDistance, stoppableLayers);
+      if (raycastHit) {
+        // set our new deltaMovement and recalculate the rayDistance taking it into account
+        deltaMovement.y = raycastHit.point.y - ray.y;
+        rayDistance = Mathf.Abs(deltaMovement.y);
+        
+        // remember to remove the skinWidth from our deltaMovement
+        deltaMovement.y += _skinWidth;
+        collisionState.below = true;
+        Ground();
+        
+        // we add a small fudge factor for the float operations here. if our rayDistance is smaller
+        // than the width + fudge bail out because we have a direct impact
+        if (rayDistance < _skinWidth + kSkinWidthFloatFudgeFactor) {
+          return;
+        }
+      }
+    }
+
+  }
+
+  public void Ground() {
+    if (dokiState == DokiState.Dropped) {
+      dokiState = DokiState.Grounded;
     }
   }
 
   public void Drop() {
+    Debug.Log("DROP!");
     if (dokiState == DokiState.Held) {
       dokiState = DokiState.Dropped;
       gameObject.layer = LayerMask.NameToLayer("Pushable");

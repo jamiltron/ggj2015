@@ -873,6 +873,18 @@ Prefab:
       propertyPath: m_ViewID.m_Type
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11415844, guid: 04322d12d7d4e4a95b5d2d5143e0bf6d, type: 2}
+      propertyPath: gravity
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 11428874, guid: 04322d12d7d4e4a95b5d2d5143e0bf6d, type: 2}
+      propertyPath: stoppingLayers.m_Bits
+      value: 2304
+      objectReference: {fileID: 0}
+    - target: {fileID: 11415844, guid: 04322d12d7d4e4a95b5d2d5143e0bf6d, type: 2}
+      propertyPath: stoppableLayers.m_Bits
+      value: 2304
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 04322d12d7d4e4a95b5d2d5143e0bf6d, type: 2}
   m_RootGameObject: {fileID: 2091766737}
@@ -1992,6 +2004,10 @@ Prefab:
     - target: {fileID: 14862392, guid: bb1420ebe1e525e47ac6c96b3b807536, type: 2}
       propertyPath: m_ViewID.m_Type
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11466820, guid: bb1420ebe1e525e47ac6c96b3b807536, type: 2}
+      propertyPath: gravity
+      value: -50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb1420ebe1e525e47ac6c96b3b807536, type: 2}
@@ -5608,7 +5624,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78c7d5a57d9c84f1da82845476c22917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: -25
+  gravity: -50
   runSpeed: 8
   groundDamping: 20
   inAirDamping: 20
@@ -6027,18 +6043,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45adfbb4eb1c24f9db5f86211d3aac8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwSpeed: {x: 0, y: 0}
-  gravity: 0
+  gravity: -20
   verticalBuffer: .100000001
   horizontalBuffer: .100000001
   dokiState: 0
   velocity: {x: 0, y: 0}
   stoppableLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 2304
   oneWayLayers:
     serializedVersion: 2
     m_Bits: 2048
+  _skinWidth: .0199999996
+  totalVerticalRays: 4
 --- !u!148 &2091766739
 NetworkView:
   m_ObjectHideFlags: 0
@@ -6100,7 +6117,7 @@ MonoBehaviour:
     m_Bits: 512
   stoppingLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 2304
 --- !u!61 &2091766743
 BoxCollider2D:
   m_ObjectHideFlags: 0
