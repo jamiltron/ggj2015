@@ -27,7 +27,7 @@ public class InstrumentScale : MonoBehaviour
 	public void Update()
 	{
 		float t = Time.time - _lastPress;
-		t = ScaleCurve.Evaluate(t / ScaleTime);
+		t = t < ScaleTime ? ScaleCurve.Evaluate(t / ScaleTime) : 0;
 		transform.localScale = _baseScale*(1 - t) + _targetScale*t;
 	}
 

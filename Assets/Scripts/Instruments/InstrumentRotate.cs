@@ -25,7 +25,7 @@ public class InstrumentRotate : MonoBehaviour
 	public void Update()
 	{
 		float t = Time.time - _lastPress;
-		t = RotCurve.Evaluate(t/RotTime);
+		t = t < RotTime ? RotCurve.Evaluate(t/RotTime) : 0;
 		transform.localEulerAngles = _baseRot*(1 - t) + _targetRot*t;
 	}
 }
