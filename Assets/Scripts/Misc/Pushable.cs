@@ -28,8 +28,12 @@ public class Pushable : MonoBehaviour {
       xMovement = -pushSpeed;
     }
 
-    transform.Translate(new Vector3(xMovement * Time.deltaTime, 0f, 0f));
+    Vector2 dir = xMovement > 0 ? Vector2.right : -Vector2.right;
+    hit = Physics2D.Raycast(myTransform.position, dir, raycastLength, stoppingLayers);
 
-    // TODO: check for collisions with walls
+    if (hit.collider == null) {
+      transform.Translate(new Vector3(xMovement * Time.deltaTime, 0f, 0f));
+    }
   }
+
 }
