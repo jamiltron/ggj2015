@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class InstrumentScale : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class InstrumentScale : MonoBehaviour
 	private Vector3 _baseScale;
 	private Vector3 _targetScale;
 	private float _lastPress = -1000;
+  private bool continousLooping = false;
 
 	public void Awake()
 	{
@@ -31,12 +33,19 @@ public class InstrumentScale : MonoBehaviour
 
   public void ContinousPress(int keyIndex)
   {
+    if (!continousLooping) {
+      continousLooping = true;
+      ScaleCurve.postWrapMode = WrapMode.Loop;
+      OnKeyPress(keyIndex);
+    }
   }
 
   public void Stop()
   {
+    _lastPress = -1000;
     transform.localScale = _baseScale;
+    continousLooping = false;
+    ScaleCurve.postWrapMode = WrapMode.Clamp;
   }
-
 
 }
