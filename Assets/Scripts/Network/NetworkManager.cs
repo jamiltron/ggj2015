@@ -11,7 +11,7 @@ public class NetworkManager : MonoBehaviour
 	public const int MAX_PLAYERS = 8;
 	public const string GAME_TYPE_NAME = "GGJ2015_SoundBeasts";
 	public const string LOBBY_SCENE = "Lobby";
-	public const string GAME_SCENE = "GameScene_Walt";
+	public const string GAME_SCENE = "GameScene";
 
 	public GameObject PlayerPrefab;
 
