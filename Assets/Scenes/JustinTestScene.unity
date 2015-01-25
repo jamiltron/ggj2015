@@ -2013,6 +2013,10 @@ Prefab:
       propertyPath: jumpHeight
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 11466820, guid: bb1420ebe1e525e47ac6c96b3b807536, type: 2}
+      propertyPath: jumps
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb1420ebe1e525e47ac6c96b3b807536, type: 2}
   m_RootGameObject: {fileID: 1877121893}
@@ -5639,7 +5643,7 @@ MonoBehaviour:
   heldLayer:
     serializedVersion: 2
     m_Bits: 8192
-  jumps: 2
+  jumps: 3
 --- !u!114 &1877121897
 MonoBehaviour:
   m_ObjectHideFlags: 0
