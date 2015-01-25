@@ -17,12 +17,9 @@ public class JumpedInstrument: RangedPlayable {
   
   void Update() {
     foreach (var player in playersInRange) {
-      NetworkView playerView = player.GetComponent<NetworkView>();
-      if (playerView.isMine) {
-        PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
-        if (playerMovement.collisionState.becameGroundedThisFrame) {
-          networkView.RPC("SendOnKeyPress", RPCMode.All, 0);
-        }
+      PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+      if (playerMovement.collisionState.becameGroundedThisFrame) {
+        networkView.RPC("SendOnKeyPress", RPCMode.All, 0);
       }
     }
   }

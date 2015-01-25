@@ -99,17 +99,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45adfbb4eb1c24f9db5f86211d3aac8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwSpeed: {x: 0, y: 0}
   gravity: 0
   verticalBuffer: .100000001
-  dokiState: 0
-  velocity: {x: 0, y: 0}
+  horizontalBuffer: .100000001
+  raycastLength: 1.51999998
   stoppableLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 2304
   oneWayLayers:
     serializedVersion: 2
     m_Bits: 2048
+  _skinWidth: .0199999996
+  totalVerticalRays: 4
 --- !u!114 &11428874
 MonoBehaviour:
   m_ObjectHideFlags: 1

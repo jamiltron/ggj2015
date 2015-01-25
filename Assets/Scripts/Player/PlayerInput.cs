@@ -92,7 +92,6 @@ public class PlayerInput : MonoBehaviour {
     _velocity.x = Mathf.Lerp(_velocity.x, normalizedHorizontalSpeed * runSpeed, Time.deltaTime * smoothedMovementFactor);
 
     if (!_controller.isGrounded && Input.GetButton("Airdrop")) {
-      Debug.Log("DROPPING!");
       _velocity.y += (gravity - dropSpeed) * Time.deltaTime;
     } else {
       _velocity.y += gravity * Time.deltaTime;
