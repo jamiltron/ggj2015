@@ -328,7 +328,7 @@ Prefab:
     - target: {fileID: 11454238, guid: 969f49ea1e2d34547b58f36d8c7bb632, type: 2}
       propertyPath: sounds.Array.data[6]
       value: 
-      objectReference: {fileID: 8300000, guid: ef2de80813cb95149abb90b7a21b2c01, type: 3}
+      objectReference: {fileID: 8300000, guid: 6fded16f7633d0542971b3201d24b123, type: 3}
     - target: {fileID: 11454238, guid: 969f49ea1e2d34547b58f36d8c7bb632, type: 2}
       propertyPath: sounds.Array.data[7]
       value: 
@@ -806,7 +806,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7fcb1e51c80dd454494c8cf1c6fa5a43, type: 3}
   - {fileID: 8300000, guid: 4253a45d5de42174f9d333605373ae18, type: 3}
   - {fileID: 8300000, guid: e5d2d5d0ab514b448ac1bf90e55b581e, type: 3}
-  - {fileID: 8300000, guid: b3b60b0da936b2a42a1057552e5e7a1a, type: 3}
+  - {fileID: 8300000, guid: e1c8e1015fa655d4c9aec6c2d3a6aa3f, type: 3}
   - {fileID: 8300000, guid: ee6e440dbd5e88244851d2f0428c5a8c, type: 3}
   - {fileID: 8300000, guid: e2a70d558a28fe4458d3e709d6f095f4, type: 3}
   - {fileID: 8300000, guid: 2fdbf776fd78be14fbb153e669044e81, type: 3}
@@ -3863,7 +3863,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 59691f8fdb8d2f746b3423f16fec75df, type: 3}
   - {fileID: 8300000, guid: 5a2715f0f86d8aa4f9e58de36d8ddce4, type: 3}
   - {fileID: 8300000, guid: efda61b7169466a4692a87470bb36b40, type: 3}
-  - {fileID: 8300000, guid: ef2de80813cb95149abb90b7a21b2c01, type: 3}
+  - {fileID: 8300000, guid: 6fded16f7633d0542971b3201d24b123, type: 3}
   - {fileID: 8300000, guid: 0f67f2fff43c5364e9b7e4cf1cbe18f7, type: 3}
 --- !u!114 &578211769
 MonoBehaviour:
@@ -6265,7 +6265,7 @@ Prefab:
     - target: {fileID: 11454238, guid: 969f49ea1e2d34547b58f36d8c7bb632, type: 2}
       propertyPath: sounds.Array.data[3]
       value: 
-      objectReference: {fileID: 8300000, guid: b3b60b0da936b2a42a1057552e5e7a1a, type: 3}
+      objectReference: {fileID: 8300000, guid: e1c8e1015fa655d4c9aec6c2d3a6aa3f, type: 3}
     - target: {fileID: 11454238, guid: 969f49ea1e2d34547b58f36d8c7bb632, type: 2}
       propertyPath: sounds.Array.data[4]
       value: 
