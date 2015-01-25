@@ -16,8 +16,17 @@ public class TouchedInstrument: RangedPlayable {
   }
   
   void Update() {
+    List<GameObject> playersToRemove = new List<GameObject>();
+    foreach (var player in playersInRange) {
+      if (player == null) {
+        playersToRemove.Add(player);
+      }
+    }
+    foreach (var player in playersToRemove) {
+      playersInRange.Remove(player);
+    }
+
     if (playersInRange.Count > 0) {
-      Debug.Log("TOUCHING!");
       networkView.RPC("SendTouched", RPCMode.All, 0);
     } else {
       networkView.RPC("SendStop", RPCMode.All);
