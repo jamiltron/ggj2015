@@ -77,7 +77,7 @@ public class PlayerInput : MonoBehaviour {
         pickedUp = TryToPickupObject(-Vector2.right);
       }
     } else if (Input.GetButtonDown("Pickup")) {
-      RaycastHit2D hit = Physics2D.Raycast(_transform.position, Vector2.up, 1f, heldLayer);
+      RaycastHit2D hit = Physics2D.Raycast(_transform.position, Vector2.up, 2.5f, heldLayer);
       if (hit.collider != null && hit.collider.gameObject.tag == "Filter") {
         Dokiable doki = hit.collider.gameObject.GetComponent<Dokiable>();
         doki.Drop();
@@ -104,7 +104,7 @@ public class PlayerInput : MonoBehaviour {
   }
   
   private bool TryToPickupObject(Vector2 direction) {
-    RaycastHit2D hit = Physics2D.Raycast(_transform.position, direction, 1f, pickupLayer);
+    RaycastHit2D hit = Physics2D.Raycast(_transform.position, direction, 2.5f, pickupLayer);
     if (hit.collider != null && hit.collider.gameObject.tag == "Filter") {
       Dokiable doki = hit.collider.gameObject.GetComponent<Dokiable>();
       doki.Pickup(gameObject);

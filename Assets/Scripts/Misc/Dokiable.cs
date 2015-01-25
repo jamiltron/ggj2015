@@ -12,7 +12,7 @@ public class Dokiable : MonoBehaviour {
   public float gravity;
   public float verticalBuffer = 0.1f;
   public float horizontalBuffer = 0.1f;
-  private DokiState dokiState;
+  public DokiState dokiState;
   public float raycastLength;
 
   public LayerMask stoppableLayers;

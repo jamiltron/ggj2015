@@ -17,7 +17,7 @@ GameObject:
   - 148: {fileID: 14828876}
   - 114: {fileID: 11415844}
   m_Layer: 12
-  m_Name: PushableFilter
+  m_Name: ReverbFilter
   m_TagString: Filter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01f55fa526664dadbdc3cfd23e0d5c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filterName: AudioEchoFilter
+  filterName: AudioReverFilter
 --- !u!148 &14828876
 NetworkView:
   m_ObjectHideFlags: 1
