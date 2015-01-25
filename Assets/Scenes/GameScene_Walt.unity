@@ -2661,7 +2661,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!1001 &622694946
 Prefab:
   m_ObjectHideFlags: 0
@@ -5249,9 +5249,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a1891b7b36c9d6a4a9ec854e490fa4a4, type: 3}
   - {fileID: 8300000, guid: a005f8a024e035b44a255e50a1441e29, type: 3}
   - {fileID: 8300000, guid: cc29259b2cfd1dd4abc6247c531f9fde, type: 3}
-  - {fileID: 8300000, guid: ba2d81b9ac5224447b3d5dd134b83579, type: 3}
-  - {fileID: 8300000, guid: 07271efebfb19504fba35e77d61f52e2, type: 3}
-  - {fileID: 8300000, guid: b2e614a21a6a6a343ade35c6936ccc3b, type: 3}
+  - {fileID: 8300000, guid: 6134041f226c3364b87f0827a4287cd9, type: 3}
+  - {fileID: 8300000, guid: d52ea3680650afd4f988e4031c8915b6, type: 3}
+  - {fileID: 8300000, guid: ba2bd202be20691418fe7fe1778b3fc8, type: 3}
   - {fileID: 8300000, guid: b2c62b59182c6f540a99f99e9d76b271, type: 3}
 --- !u!114 &1599294055
 MonoBehaviour:
@@ -6120,7 +6120,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!1 &1890202910
 GameObject:
   m_ObjectHideFlags: 0
@@ -6363,15 +6363,15 @@ Prefab:
     - target: {fileID: 11454238, guid: 969f49ea1e2d34547b58f36d8c7bb632, type: 2}
       propertyPath: sounds.Array.data[4]
       value: 
-      objectReference: {fileID: 8300000, guid: ba2d81b9ac5224447b3d5dd134b83579, type: 3}
+      objectReference: {fileID: 8300000, guid: 6134041f226c3364b87f0827a4287cd9, type: 3}
     - target: {fileID: 11454238, guid: 969f49ea1e2d34547b58f36d8c7bb632, type: 2}
       propertyPath: sounds.Array.data[5]
       value: 
-      objectReference: {fileID: 8300000, guid: 07271efebfb19504fba35e77d61f52e2, type: 3}
+      objectReference: {fileID: 8300000, guid: d52ea3680650afd4f988e4031c8915b6, type: 3}
     - target: {fileID: 11454238, guid: 969f49ea1e2d34547b58f36d8c7bb632, type: 2}
       propertyPath: sounds.Array.data[6]
       value: 
-      objectReference: {fileID: 8300000, guid: b2e614a21a6a6a343ade35c6936ccc3b, type: 3}
+      objectReference: {fileID: 8300000, guid: ba2bd202be20691418fe7fe1778b3fc8, type: 3}
     - target: {fileID: 11454238, guid: 969f49ea1e2d34547b58f36d8c7bb632, type: 2}
       propertyPath: sounds.Array.data[7]
       value: 
