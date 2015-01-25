@@ -28,4 +28,15 @@ public class InstrumentScale : MonoBehaviour
 		t = ScaleCurve.Evaluate(t / ScaleTime);
 		transform.localScale = _baseScale*(1 - t) + _targetScale*t;
 	}
+
+  public void ContinousPress(int keyIndex)
+  {
+  }
+
+  public void Stop()
+  {
+    transform.localScale = _baseScale;
+  }
+
+
 }
