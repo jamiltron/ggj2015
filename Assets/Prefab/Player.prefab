@@ -159,11 +159,14 @@ MonoBehaviour:
   gravity: -25
   runSpeed: 8
   groundDamping: 20
-  inAirDamping: 5
-  jumpHeight: 8
+  inAirDamping: 20
+  flySpeed: 8
   pickupLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4096
+  heldLayer:
+    serializedVersion: 2
+    m_Bits: 8192
 --- !u!148 &14862392
 NetworkView:
   m_ObjectHideFlags: 1
