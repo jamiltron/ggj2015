@@ -83,6 +83,10 @@ public class PlayerInput : MonoBehaviour {
     }
 
     _velocity.y = Mathf.Lerp(_velocity.y, normalizedVerticalSpeed * flySpeed, Time.deltaTime * inAirDamping);
+    if (normalizedVerticalSpeed == 0) {
+      // apply gravity before moving
+      _velocity.y += gravity * Time.deltaTime;
+    }
 
     // apply horizontal speed smoothing it
     var smoothedMovementFactor = _controller.isGrounded ? groundDamping : inAirDamping; // how fast do we change direction?
@@ -92,7 +96,7 @@ public class PlayerInput : MonoBehaviour {
   }
   
   private bool TryToPickupObject(Vector2 direction) {
-    RaycastHit2D hit = Physics2D.Raycast(_transform.position, -Vector2.up, 1f, pickupLayer);
+    RaycastHit2D hit = Physics2D.Raycast(_transform.position, direction, 1f, pickupLayer);
     if (hit.collider != null && hit.collider.gameObject.tag == "Filter") {
       Dokiable doki = hit.collider.gameObject.GetComponent<Dokiable>();
       doki.Pickup(gameObject);
