@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78c7d5a57d9c84f1da82845476c22917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: -25
+  gravity: -50
   runSpeed: 8
   groundDamping: 20
   inAirDamping: 20
@@ -167,7 +167,8 @@ MonoBehaviour:
   heldLayer:
     serializedVersion: 2
     m_Bits: 8192
-  jumps: 2
+  jumps: 3
+  dropSpeed: 1000
 --- !u!148 &14862392
 NetworkView:
   m_ObjectHideFlags: 1
