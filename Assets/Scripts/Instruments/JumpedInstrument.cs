@@ -15,7 +15,7 @@ public class JumpedInstrument: RangedPlayable {
     playersInRange = new List<GameObject>();
   }
   
-  void Update() {
+  void LateUpdate() {
     foreach (var player in playersInRange) {
       NetworkView playerView = player.GetComponent<NetworkView>();
       if (playerView.isMine) {
