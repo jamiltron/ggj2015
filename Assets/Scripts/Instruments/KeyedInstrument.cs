@@ -26,9 +26,9 @@ public class KeyedInstrument : RangedPlayable {
 			      networkView.RPC("SendOnKeyPress", RPCMode.All, keys.IndexOf(key));
 				  BroadcastMessage("OnDirectKeyPress", keys.IndexOf(key), SendMessageOptions.DontRequireReceiver);
           }
-          if (Input.GetButtonDown("Record")) {
-            SendMessage("ToggleRecord");
-          }
+        }
+        if (Input.GetButtonDown("Record")) {
+          SendMessage("ToggleRecord");
         }
       }
     }
