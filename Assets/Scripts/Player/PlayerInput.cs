@@ -25,7 +25,12 @@ public class PlayerInput : MonoBehaviour {
 
     if(!networkView.isMine)
       return;
-       
+
+    if (Input.GetButtonDown("Quit")) {
+      Network.Disconnect();
+      Application.Quit();
+    }
+
     // grab our current _velocity to use as a base for all calculations
     _velocity = _controller.velocity;
     
@@ -46,14 +51,12 @@ public class PlayerInput : MonoBehaviour {
     } else {
       normalizedHorizontalSpeed = 0;
     }
-    
-    
+        
     // we can only jump whilst grounded
     if( _controller.isGrounded && Input.GetButtonDown("Jump")) {
       _velocity.y = Mathf.Sqrt(2f * jumpHeight * -gravity);
     }
-    
-    
+
     // apply horizontal speed smoothing it
     var smoothedMovementFactor = _controller.isGrounded ? groundDamping : inAirDamping; // how fast do we change direction?
     _velocity.x = Mathf.Lerp( _velocity.x, normalizedHorizontalSpeed * runSpeed, Time.deltaTime * smoothedMovementFactor );
