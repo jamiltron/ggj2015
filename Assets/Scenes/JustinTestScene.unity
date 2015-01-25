@@ -985,6 +985,10 @@ Prefab:
       propertyPath: stoppableLayers.m_Bits
       value: 2304
       objectReference: {fileID: 0}
+    - target: {fileID: 11415844, guid: 04322d12d7d4e4a95b5d2d5143e0bf6d, type: 2}
+      propertyPath: raycastLength
+      value: 1.51999998
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 04322d12d7d4e4a95b5d2d5143e0bf6d, type: 2}
   m_RootGameObject: {fileID: 2091766737}
@@ -6809,8 +6813,7 @@ MonoBehaviour:
   gravity: -20
   verticalBuffer: .100000001
   horizontalBuffer: .100000001
-  dokiState: 0
-  velocity: {x: 0, y: 0}
+  raycastLength: 1.51999998
   stoppableLayers:
     serializedVersion: 2
     m_Bits: 2304

@@ -12,8 +12,8 @@ public class Dokiable : MonoBehaviour {
   public float gravity;
   public float verticalBuffer = 0.1f;
   public float horizontalBuffer = 0.1f;
-  public DokiState dokiState;
-  public Vector2 velocity;
+  private DokiState dokiState;
+  public float raycastLength;
 
   public LayerMask stoppableLayers;
   public LayerMask oneWayLayers;
@@ -112,11 +112,7 @@ public class Dokiable : MonoBehaviour {
 
       // move then update our state
       transform.Translate(delta, Space.World);
-      
-      // only calculate velocity if we have a non-zero deltaTime
-      if (Time.deltaTime > 0) {
-        velocity = delta / Time.deltaTime;
-      }
+
     }
   }
 
@@ -178,10 +174,28 @@ public class Dokiable : MonoBehaviour {
   }
 
   private float droppedX(int normalizedX) {
-    if (normalizedX > 0) {
-      return (holder.transform.position.x + holder.collider2D.bounds.extents.x + myCollider.bounds.extents.x + horizontalBuffer);
+    RaycastHit2D leftHit;
+    RaycastHit2D rightHit;
+    var mask = stoppableLayers;
+    mask &= ~oneWayLayers;
+
+    rightHit = Physics2D.Raycast(myTransform.position, Vector2.right, raycastLength, mask);
+    leftHit = Physics2D.Raycast(myTransform.position, -Vector2.right, raycastLength, mask);
+
+    float leftPos = holder.transform.position.x - holder.collider2D.bounds.extents.x - myCollider.bounds.extents.x - horizontalBuffer;
+    float rightPos = holder.transform.position.x + holder.collider2D.bounds.extents.x + myCollider.bounds.extents.x + horizontalBuffer;
+
+
+    if (normalizedX > 0 && rightHit.collider == null) {
+      return rightPos;
+    }  else if (normalizedX > 0 && leftHit.collider == null) {
+      return leftPos;
+    } else if (normalizedX <= 0 && leftHit.collider == null) {
+      return leftPos;
+    } else if (normalizedX <= 0 && rightHit.collider == null) {
+      return rightPos;
     } else {
-      return (holder.transform.position.x - holder.collider2D.bounds.extents.x - myCollider.bounds.extents.x - horizontalBuffer);
+      return myTransform.position.x;
     }
   }
 
