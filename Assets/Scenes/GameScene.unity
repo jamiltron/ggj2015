@@ -1495,7 +1495,7 @@ Transform:
   m_Children:
   - {fileID: 1893723886}
   m_Father: {fileID: 0}
-  m_RootOrder: 35
+  m_RootOrder: 36
 --- !u!1001 &217610279
 Prefab:
   m_ObjectHideFlags: 0
@@ -2276,7 +2276,7 @@ Transform:
   m_Children:
   - {fileID: 1875331004}
   m_Father: {fileID: 0}
-  m_RootOrder: 44
+  m_RootOrder: 42
 --- !u!61 &371510920
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2453,7 +2453,7 @@ Transform:
   m_LocalScale: {x: 14, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 36
+  m_RootOrder: 33
 --- !u!1 &479422961
 GameObject:
   m_ObjectHideFlags: 0
@@ -2836,7 +2836,7 @@ Transform:
   m_Children:
   - {fileID: 1117566332}
   m_Father: {fileID: 0}
-  m_RootOrder: 33
+  m_RootOrder: 34
 --- !u!1001 &508552589
 Prefab:
   m_ObjectHideFlags: 0
@@ -6041,7 +6041,7 @@ Transform:
   m_Children:
   - {fileID: 1892179814}
   m_Father: {fileID: 0}
-  m_RootOrder: 34
+  m_RootOrder: 35
 --- !u!61 &1226266216
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8442,7 +8442,7 @@ Transform:
   m_LocalScale: {x: 14, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 42
+  m_RootOrder: 45
 --- !u!1 &1708534350
 GameObject:
   m_ObjectHideFlags: 0
@@ -8586,7 +8586,7 @@ Transform:
   m_Children:
   - {fileID: 1030256191}
   m_Father: {fileID: 0}
-  m_RootOrder: 45
+  m_RootOrder: 44
 --- !u!1001 &1859161239
 Prefab:
   m_ObjectHideFlags: 0

@@ -104,9 +104,31 @@ public class PlayerInput : MonoBehaviour {
   }
   
   private bool TryToPickupObject(Vector2 direction) {
-    RaycastHit2D hit = Physics2D.Raycast(_transform.position, direction, 2.5f, pickupLayer);
-    if (hit.collider != null && hit.collider.gameObject.tag == "Filter") {
-      Dokiable doki = hit.collider.gameObject.GetComponent<Dokiable>();
+    RaycastHit2D hit1;
+    RaycastHit2D hit2;
+    RaycastHit2D hit3;
+    if (direction == -Vector2.up) {
+      hit1 = Physics2D.Raycast(_transform.position, direction, 2.5f, pickupLayer);
+      hit2 = Physics2D.Raycast(new Vector2(_transform.position.x - 1.5f, _transform.position.y), direction, 2.5f, pickupLayer);
+      hit3 = Physics2D.Raycast(new Vector2(_transform.position.x + 1.5f, _transform.position.y), direction, 2.5f, pickupLayer);
+    } else {
+      hit1 = Physics2D.Raycast(_transform.position, direction, 2.5f, pickupLayer);
+      hit2 = Physics2D.Raycast(new Vector2(_transform.position.x, _transform.position.y + 1.5f), direction, 2.5f, pickupLayer);
+      hit3 = Physics2D.Raycast(new Vector2(_transform.position.x, _transform.position.y - 1.5f), direction, 2.5f, pickupLayer);
+    }
+
+    if (hit1.collider != null && hit1.collider.gameObject.tag == "Filter") {
+      Dokiable doki = hit1.collider.gameObject.GetComponent<Dokiable>();
+      doki.Pickup(gameObject);
+      _holding = true;
+      return true;
+    } else if (hit2.collider != null && hit2.collider.gameObject.tag == "Filter") {
+      Dokiable doki = hit2.collider.gameObject.GetComponent<Dokiable>();
+      doki.Pickup(gameObject);
+      _holding = true;
+      return true;
+    } else if (hit3.collider != null && hit3.collider.gameObject.tag == "Filter") {
+      Dokiable doki = hit3.collider.gameObject.GetComponent<Dokiable>();
       doki.Pickup(gameObject);
       _holding = true;
       return true;
