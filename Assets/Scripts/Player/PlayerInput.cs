@@ -7,13 +7,15 @@ public class PlayerInput : MonoBehaviour {
   public float runSpeed = 8f;
   public float groundDamping = 20f; // how fast do we change direction? higher means faster
   public float inAirDamping = 5f;
-  public float flySpeed = 3f;
+  public float jumpHeight = 3f;
   public LayerMask pickupLayer;
   public LayerMask heldLayer;
+  public int jumps = 2;
   
   [HideInInspector]
   private float normalizedHorizontalSpeed = 0;
-  
+
+  private int _jumpsLeft;
   private PlayerMovement _controller;
   private RaycastHit2D _lastControllerColliderHit;
   private Vector3 _velocity;
@@ -23,6 +25,7 @@ public class PlayerInput : MonoBehaviour {
   void Awake() {
     _controller = GetComponent<PlayerMovement>();
     _transform = GetComponent<Transform>();
+    _jumpsLeft = jumps;
   }
   
   // the Update loop contains a very simple example of moving the character around and controlling the animation
@@ -57,6 +60,13 @@ public class PlayerInput : MonoBehaviour {
       normalizedHorizontalSpeed = 0;
     }
 
+    if( _jumpsLeft > 0 && Input.GetButtonDown("Jump")) {
+      _jumpsLeft -= 1;
+      _velocity.y = Mathf.Sqrt(2f * jumpHeight * -gravity);
+    }
+
+
+
     if (Input.GetButtonDown("Pickup") && !_holding) {
       bool pickedUp = false;
       pickedUp = TryToPickupObject(-Vector2.up);
@@ -75,24 +85,17 @@ public class PlayerInput : MonoBehaviour {
       }
     }
         
-    int normalizedVerticalSpeed = 0;
-    if(Input.GetButton("Fly Up")) {
-      normalizedVerticalSpeed = 1;
-    } else if (Input.GetButton("Fly Down")) {
-      normalizedVerticalSpeed = -1;
-    }
 
-    _velocity.y = Mathf.Lerp(_velocity.y, normalizedVerticalSpeed * flySpeed, Time.deltaTime * inAirDamping);
-    if (normalizedVerticalSpeed == 0) {
-      // apply gravity before moving
-      _velocity.y += gravity * Time.deltaTime;
-    }
 
     // apply horizontal speed smoothing it
     var smoothedMovementFactor = _controller.isGrounded ? groundDamping : inAirDamping; // how fast do we change direction?
-    _velocity.x = Mathf.Lerp( _velocity.x, normalizedHorizontalSpeed * runSpeed, Time.deltaTime * smoothedMovementFactor );
+    _velocity.x = Mathf.Lerp(_velocity.x, normalizedHorizontalSpeed * runSpeed, Time.deltaTime * smoothedMovementFactor);
+    _velocity.y += gravity * Time.deltaTime;
         
     _controller.move(_velocity * Time.deltaTime);
+    if (_controller.isGrounded) {
+      _jumpsLeft = jumps;
+    }
   }
   
   private bool TryToPickupObject(Vector2 direction) {

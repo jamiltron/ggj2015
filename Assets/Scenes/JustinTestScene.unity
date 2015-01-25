@@ -2009,6 +2009,10 @@ Prefab:
       propertyPath: gravity
       value: -50
       objectReference: {fileID: 0}
+    - target: {fileID: 11466820, guid: bb1420ebe1e525e47ac6c96b3b807536, type: 2}
+      propertyPath: jumpHeight
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb1420ebe1e525e47ac6c96b3b807536, type: 2}
   m_RootGameObject: {fileID: 1877121893}
@@ -5628,13 +5632,14 @@ MonoBehaviour:
   runSpeed: 8
   groundDamping: 20
   inAirDamping: 20
-  flySpeed: 8
+  jumpHeight: 6
   pickupLayer:
     serializedVersion: 2
     m_Bits: 4096
   heldLayer:
     serializedVersion: 2
     m_Bits: 8192
+  jumps: 2
 --- !u!114 &1877121897
 MonoBehaviour:
   m_ObjectHideFlags: 0

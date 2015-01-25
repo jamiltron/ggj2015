@@ -55,6 +55,7 @@ public class Dokiable : MonoBehaviour {
   void Awake() {
     myTransform = GetComponent<Transform>();
     myCollider = GetComponent<BoxCollider2D>();
+    recalculateDistanceBetweenRays();
   }
 
   public void Pickup(GameObject grabber) {
@@ -66,6 +67,11 @@ public class Dokiable : MonoBehaviour {
       myTransform.position = newPosition;
       dokiState = DokiState.Held;
     }
+  }
+
+  public void recalculateDistanceBetweenRays() {
+    var colliderUseableWidth = myCollider.size.x * Mathf.Abs(transform.localScale.x) - (2f * _skinWidth);
+    _horizontalDistanceBetweenRays = colliderUseableWidth / (totalVerticalRays - 1);
   }
 
   [HideInInspector]
@@ -96,7 +102,6 @@ public class Dokiable : MonoBehaviour {
       newPosition.y = heldY();
       myTransform.position = newPosition;
     } else if (dokiState == DokiState.Dropped || dokiState == DokiState.Grounded) {
-      Debug.Log("Updating dropped!");
       float deltaY = gravity * Time.deltaTime;
       Vector3 delta = new Vector3(0f, deltaY, 0f);
       primeRaycastOrigins(myTransform.position + delta, delta);
@@ -154,7 +159,6 @@ public class Dokiable : MonoBehaviour {
   }
 
   public void Drop() {
-    Debug.Log("DROP!");
     if (dokiState == DokiState.Held) {
       dokiState = DokiState.Dropped;
       gameObject.layer = LayerMask.NameToLayer("Pushable");
