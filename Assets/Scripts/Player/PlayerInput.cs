@@ -11,6 +11,7 @@ public class PlayerInput : MonoBehaviour {
   public LayerMask pickupLayer;
   public LayerMask heldLayer;
   public int jumps = 2;
+  public float dropSpeed = 25f;
   
   [HideInInspector]
   private float normalizedHorizontalSpeed = 0;
@@ -66,7 +67,6 @@ public class PlayerInput : MonoBehaviour {
     }
 
 
-
     if (Input.GetButtonDown("Pickup") && !_holding) {
       bool pickedUp = false;
       pickedUp = TryToPickupObject(-Vector2.up);
@@ -90,7 +90,13 @@ public class PlayerInput : MonoBehaviour {
     // apply horizontal speed smoothing it
     var smoothedMovementFactor = _controller.isGrounded ? groundDamping : inAirDamping; // how fast do we change direction?
     _velocity.x = Mathf.Lerp(_velocity.x, normalizedHorizontalSpeed * runSpeed, Time.deltaTime * smoothedMovementFactor);
-    _velocity.y += gravity * Time.deltaTime;
+
+    if (!_controller.isGrounded && Input.GetButton("Airdrop")) {
+      Debug.Log("DROPPING!");
+      _velocity.y += (gravity - dropSpeed) * Time.deltaTime;
+    } else {
+      _velocity.y += gravity * Time.deltaTime;
+    }
         
     _controller.move(_velocity * Time.deltaTime);
     if (_controller.isGrounded) {
