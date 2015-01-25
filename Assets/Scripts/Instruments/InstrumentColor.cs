@@ -25,7 +25,7 @@ public class InstrumentColor : MonoBehaviour
 	public void Update()
 	{
 		float t = Time.time - _lastPress;
-		t = ColorCurve.Evaluate(t/ColorTime);
+		t = t < ColorTime ? ColorCurve.Evaluate(t/ColorTime) : 0;
 		renderer.material.color = _baseColor*(1 - t) + _targetColor*t;
 	}
 }
