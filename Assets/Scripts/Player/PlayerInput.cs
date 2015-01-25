@@ -7,7 +7,7 @@ public class PlayerInput : MonoBehaviour {
   public float runSpeed = 8f;
   public float groundDamping = 20f; // how fast do we change direction? higher means faster
   public float inAirDamping = 5f;
-  public float jumpHeight = 3f;
+  public float flySpeed = 3f;
   public LayerMask pickupLayer;
   public LayerMask heldLayer;
   
@@ -72,18 +72,19 @@ public class PlayerInput : MonoBehaviour {
       }
     }
         
-    // we can only jump whilst grounded
-    if( _controller.isGrounded && Input.GetButtonDown("Jump")) {
-      _velocity.y = Mathf.Sqrt(2f * jumpHeight * -gravity);
+    int normalizedVerticalSpeed = 0;
+    if(Input.GetButton("Fly Up")) {
+      normalizedVerticalSpeed = 1;
+    } else if (Input.GetButton("Fly Down")) {
+      normalizedVerticalSpeed = -1;
     }
+
+    _velocity.y = Mathf.Lerp(_velocity.y, normalizedVerticalSpeed * flySpeed, Time.deltaTime * inAirDamping);
 
     // apply horizontal speed smoothing it
     var smoothedMovementFactor = _controller.isGrounded ? groundDamping : inAirDamping; // how fast do we change direction?
     _velocity.x = Mathf.Lerp( _velocity.x, normalizedHorizontalSpeed * runSpeed, Time.deltaTime * smoothedMovementFactor );
-    
-    // apply gravity before moving
-    _velocity.y += gravity * Time.deltaTime;
-    
+        
     _controller.move(_velocity * Time.deltaTime);
   }
   
