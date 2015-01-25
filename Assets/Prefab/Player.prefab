@@ -160,7 +160,7 @@ MonoBehaviour:
   runSpeed: 8
   groundDamping: 20
   inAirDamping: 5
-  jumpHeight: 4
+  jumpHeight: 8
 --- !u!148 &14862392
 NetworkView:
   m_ObjectHideFlags: 1
