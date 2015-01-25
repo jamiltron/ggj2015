@@ -113,7 +113,7 @@ MonoBehaviour:
   _skinWidth: .0199999996
   platformMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 4352
   triggerMask:
     serializedVersion: 2
     m_Bits: 1024
@@ -161,6 +161,9 @@ MonoBehaviour:
   groundDamping: 20
   inAirDamping: 5
   jumpHeight: 8
+  pickupLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!148 &14862392
 NetworkView:
   m_ObjectHideFlags: 1

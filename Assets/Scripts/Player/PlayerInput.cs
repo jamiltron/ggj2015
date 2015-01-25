@@ -8,6 +8,8 @@ public class PlayerInput : MonoBehaviour {
   public float groundDamping = 20f; // how fast do we change direction? higher means faster
   public float inAirDamping = 5f;
   public float jumpHeight = 3f;
+  public LayerMask pickupLayer;
+  public LayerMask heldLayer;
   
   [HideInInspector]
   private float normalizedHorizontalSpeed = 0;
@@ -15,9 +17,11 @@ public class PlayerInput : MonoBehaviour {
   private PlayerMovement _controller;
   private RaycastHit2D _lastControllerColliderHit;
   private Vector3 _velocity;
+  private Transform _transform;
   
   void Awake() {
     _controller = GetComponent<PlayerMovement>();
+    _transform = GetComponent<Transform>();
   }
   
   // the Update loop contains a very simple example of moving the character around and controlling the animation
@@ -50,6 +54,22 @@ public class PlayerInput : MonoBehaviour {
       }
     } else {
       normalizedHorizontalSpeed = 0;
+    }
+
+    if (_controller.isGrounded && Input.GetButtonDown("Pickup")) {
+      RaycastHit2D hit;
+
+      hit = Physics2D.Raycast(_transform.position, -Vector2.up, 1f, pickupLayer);
+      if (hit.collider != null && hit.collider.gameObject.tag == "Filter") {
+        Dokiable doki = hit.collider.gameObject.GetComponent<Dokiable>();
+        doki.Pickup(gameObject);
+      } else {
+        hit = Physics2D.Raycast(_transform.position, Vector2.up, 1f, heldLayer);
+        if (hit.collider != null && hit.collider.gameObject.tag == "Filter") {
+          Dokiable doki = hit.collider.gameObject.GetComponent<Dokiable>();
+          doki.Drop();
+        }
+      }
     }
         
     // we can only jump whilst grounded
