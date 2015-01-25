@@ -30,7 +30,7 @@ public class PlayerInput : MonoBehaviour {
   }
   
   // the Update loop contains a very simple example of moving the character around and controlling the animation
-  void Update() {
+  void FixedUpdate() {
 
     if(!networkView.isMine)
       return;

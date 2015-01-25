@@ -7,7 +7,8 @@ Properties {
 SubShader {
 	Tags {"Queue"="Transparent" "IgnoreProjector"="True" "RenderType"="Transparent"}
 	LOD 200
-	Blend One One
+	Blend SrcAlpha One
+	BlendOp Max
 
 CGPROGRAM
 #pragma surface surf Lambert alpha
@@ -21,7 +22,7 @@ struct Input {
 
 void surf (Input IN, inout SurfaceOutput o) {
 	fixed4 c = tex2D(_MainTex, IN.uv_MainTex) * _Color;
-	o.Albedo = c.rgb;
+	o.Albedo = c.rgb * c.a;
 	o.Alpha = c.a;
 }
 ENDCG

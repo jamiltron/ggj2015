@@ -7798,6 +7798,18 @@ Prefab:
       propertyPath: orthographic size
       value: 14.0869942
       objectReference: {fileID: 0}
+    - target: {fileID: 2087066, guid: b9d76ff9562d0364ab067daee3ba54b5, type: 2}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2087066, guid: b9d76ff9562d0364ab067daee3ba54b5, type: 2}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2087066, guid: b9d76ff9562d0364ab067daee3ba54b5, type: 2}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b9d76ff9562d0364ab067daee3ba54b5, type: 2}
   m_RootGameObject: {fileID: 96209777}
@@ -8076,7 +8088,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78c7d5a57d9c84f1da82845476c22917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: -25
+  gravity: -50
   runSpeed: 8
   groundDamping: 20
   inAirDamping: 20
@@ -8087,7 +8099,8 @@ MonoBehaviour:
   heldLayer:
     serializedVersion: 2
     m_Bits: 8192
-  jumps: 2
+  jumps: 3
+  dropSpeed: 1000
 --- !u!114 &1877121897
 MonoBehaviour:
   m_ObjectHideFlags: 0
