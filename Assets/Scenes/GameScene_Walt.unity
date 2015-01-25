@@ -3840,7 +3840,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1001 &654742763
 Prefab:
   m_ObjectHideFlags: 0
@@ -4456,7 +4456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Colors:
-  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: .533333361, g: .533333361, b: .533333361, a: 0}
   ColorTime: .5
   ColorCurve:
     serializedVersion: 2
@@ -5445,7 +5445,7 @@ Transform:
   m_LocalScale: {x: 22.3287678, y: 22.7103195, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
 --- !u!1 &1187707813
 GameObject:
   m_ObjectHideFlags: 0
@@ -5789,7 +5789,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11485368, guid: 969f49ea1e2d34547b58f36d8c7bb632, type: 2}
       propertyPath: Colors.Array.data[0].r
-      value: 0
+      value: .533333361
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485368, guid: 969f49ea1e2d34547b58f36d8c7bb632, type: 2}
+      propertyPath: Colors.Array.data[0].g
+      value: .533333361
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485368, guid: 969f49ea1e2d34547b58f36d8c7bb632, type: 2}
+      propertyPath: Colors.Array.data[0].b
+      value: .533333361
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 969f49ea1e2d34547b58f36d8c7bb632, type: 2}
@@ -8191,7 +8199,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!1001 &1886830351
 Prefab:
   m_ObjectHideFlags: 0
