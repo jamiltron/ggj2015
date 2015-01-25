@@ -24,7 +24,7 @@ public class KeyedInstrument : RangedPlayable {
         foreach (var key in keys) {
           if (Input.GetButtonDown(key)) {
 			      networkView.RPC("SendOnKeyPress", RPCMode.All, keys.IndexOf(key));
-				  SendMessage("OnDirectKeyPress", keys.IndexOf(key), SendMessageOptions.DontRequireReceiver);
+				  BroadcastMessage("OnDirectKeyPress", keys.IndexOf(key), SendMessageOptions.DontRequireReceiver);
           }
           if (Input.GetButtonDown("Record")) {
             SendMessage("ToggleRecord");
@@ -36,7 +36,7 @@ public class KeyedInstrument : RangedPlayable {
 
   [RPC]
   void SendOnKeyPress(int keyIndex) {
-    SendMessage("OnKeyPress", keyIndex, SendMessageOptions.DontRequireReceiver);
+	  BroadcastMessage("OnKeyPress", keyIndex, SendMessageOptions.DontRequireReceiver);
   }
 
   void OnTriggerEnter2D(Collider2D other) {

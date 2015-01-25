@@ -29,7 +29,7 @@ public class JumpedInstrument: RangedPlayable {
   
   [RPC]
   void SendOnKeyPress(int keyIndex) {
-    SendMessage("OnKeyPress", keyIndex, SendMessageOptions.DontRequireReceiver);
+    BroadcastMessage("OnKeyPress", keyIndex, SendMessageOptions.DontRequireReceiver);
   }
   
   void OnTriggerEnter2D(Collider2D other) {
