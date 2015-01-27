@@ -30,7 +30,7 @@ public class PlayerInput : MonoBehaviour {
   }
   
   // the Update loop contains a very simple example of moving the character around and controlling the animation
-  void FixedUpdate() {
+  void Update() {
 
     if(!networkView.isMine)
       return;
@@ -67,7 +67,7 @@ public class PlayerInput : MonoBehaviour {
     }
 
 
-    if (Input.GetButton("Pickup") && !_holding) {
+    if (Input.GetButtonDown("Pickup") && !_holding) {
       bool pickedUp = false;
       pickedUp = TryToPickupObject(-Vector2.up);
       if (!pickedUp) {
@@ -85,8 +85,6 @@ public class PlayerInput : MonoBehaviour {
       }
     }
         
-
-
     // apply horizontal speed smoothing it
     var smoothedMovementFactor = _controller.isGrounded ? groundDamping : inAirDamping; // how fast do we change direction?
     _velocity.x = Mathf.Lerp(_velocity.x, normalizedHorizontalSpeed * runSpeed, Time.deltaTime * smoothedMovementFactor);
@@ -96,11 +94,20 @@ public class PlayerInput : MonoBehaviour {
     } else {
       _velocity.y += gravity * Time.deltaTime;
     }
-        
-    _controller.move(_velocity * Time.deltaTime);
+       
+
     if (_controller.isGrounded) {
       _jumpsLeft = jumps;
     }
+
+  }
+
+  void FixedUpdate() {
+    if(!networkView.isMine) {
+      return;
+    }
+
+    _controller.move(_velocity * Time.deltaTime);
   }
   
   private bool TryToPickupObject(Vector2 direction) {
