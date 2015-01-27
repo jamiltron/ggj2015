@@ -67,7 +67,7 @@ public class PlayerInput : MonoBehaviour {
     }
 
 
-    if (Input.GetButtonDown("Pickup") && !_holding) {
+    if (Input.GetButton("Pickup") && !_holding) {
       bool pickedUp = false;
       pickedUp = TryToPickupObject(-Vector2.up);
       if (!pickedUp) {
