@@ -35,7 +35,7 @@ public class PlayerInput : MonoBehaviour {
     if(!networkView.isMine)
       return;
 
-    if (Input.GetButtonDown("Quit")) {
+    if (Input.GetButton("Quit")) {
       Network.Disconnect();
       Application.Quit();
     }
